@@ -9,7 +9,7 @@
 export default {
     name: 'SearchBar',
     methods: {
-        onInput: function(e) {
+        onInput: function(event) {
             this.$emit('termChange', event.target.value); //2nd value here, but first arg in app.vue (SearchTerm)
         }
     }
