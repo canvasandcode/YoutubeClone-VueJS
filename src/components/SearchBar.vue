@@ -1,12 +1,19 @@
 <template>
     <div>
-        <input type="text">
+        <input type="text" v-on:input="onInput">
+        
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SearchBar'
+    name: 'SearchBar',
+    methods: {
+        onInput: function(e) {
+            this.$emit('termChange', event.target.value); //2nd value here, but first arg in app.vue (SearchTerm)
+        }
+    }
+
 }
 </script>
 
