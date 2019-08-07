@@ -1,21 +1,25 @@
 <template>
     <div>
-        <SearchBar @termChange="onTermChange"></SearchBar> <!--listens for termChange event to be emitted from searchbar, then runs function-->
+        <!--listens for termChange event to be emitted from searchbar, then runs function-->
+        <SearchBar @termChange="onTermChange"></SearchBar>
     </div>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar';
+const API_KEY = 'AIzaSyCm3jr9B1jvJ87taITzUsHGXw9vEMKIAUw'; //using caps here as its const, to make more clear
 
 export default {
-    
-    name: 'App', //helps identify when debugging in browser
+    //helps identify when debugging in browser
+    name: 'App', 
     components: {
         SearchBar
     },
     methods: {
-        onTermChange(searchTerm) { //searchTerm is 2nd arg from searchbar.vue file, passed the users input through this
-            console.log(searchTerm); //and log it here
+        //searchTerm is 2nd arg from searchbar.vue file, passed the users input through this
+        onTermChange(searchTerm) { 
+            //and log it here
+            console.log(searchTerm); 
         }
     }
 };
