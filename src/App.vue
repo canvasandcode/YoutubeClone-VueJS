@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!--listens for termChange event to be emitted from searchbar, then runs function-->
+    <!--listens for termChange event to be emitted from searchbar.vue file, then runs method below-->
     <SearchBar @termChange="onTermChange"></SearchBar>
-    <VideoList></VideoList>
-    {{ videos.length }}
-    <!--retrieve length from videos data property-->
+    <!--SearchBar emits an event called termchange-->
+    <VideoList :videos="videos"></VideoList>
+    <!--inside the VideoList we will have access to a property called videos, name in speech marks should match the empty array in data prop below-->
   </div>
 </template>
 
@@ -24,10 +24,10 @@ export default {
   },
   data() {
     //have to use a function that returns a data property as we are in a component
-    return { videos: [] };
+    return { videos: [] }; //initialise as empty array
   },
   methods: {
-    //searchTerm is 2nd arg from searchbar.vue file, passed the users input through this
+    //searchTerm is 2nd arg from searchbar.vue file, passed the users input text through this
     onTermChange(searchTerm) {
       //and log it here
       // console.log(searchTerm);
@@ -38,11 +38,12 @@ export default {
             key: API_KEY,
             type: "video",
             part: "snippet",
-            q: searchTerm
+            q: searchTerm //q is for query, searchTerm is the users input from SearchBar.vue
           }
         })
         .then(response => {
-          this.videos = response.data.items; //this is the data property that is tied to response from youtube, not our instance
+          //fill the empty array from above with the data from API
+          this.videos = response.data.items; //this data property that is tied to response from youtube, not our instance
         });
     }
   }
