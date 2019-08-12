@@ -23,8 +23,8 @@ export default {
     }
   },
   methods: {
-    onVideoSelect() {
-        this.$emit('videoSelect', this.video);
+    onVideoSelect() { //when a video is selected, emit an event to video list component
+        this.$emit('videoSelect', this.video); //name of what is being emitted (videoSelect) - parent will listen for this and then do something
     }
     
   }

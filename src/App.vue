@@ -18,7 +18,7 @@ import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
 import VideoDetail from "./components/VideoDetail";
 
-const API_KEY = "AIzaSyBbrNzW1HuqCFwVzz9dMYnc-sh2jooUOuE"; //using caps here as its const, to make more clear
+const API_KEY = "AIzaSyAwNC9yUdB2507ADipN3pHuk-F7D66opE4"; //using caps here as its const, to make more clear
 
 export default {
   //helps identify when debugging in browser
@@ -35,7 +35,7 @@ export default {
       selectedVideo: null }; //initialise as empty array
   },
   methods: {
-    onVideoSelect(video) {
+    onVideoSelect(video) { //receive video from child as argument
       this.selectedVideo = video;
     },
     //searchTerm is 2nd arg from searchbar.vue file, passed the users input text through this
