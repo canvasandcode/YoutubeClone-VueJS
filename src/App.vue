@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <!--listens for termChange event to be emitted from searchbar.vue file, then runs method below-->
     <SearchBar @termChange="onTermChange"></SearchBar>
     <!--SearchBar emits an event called termchange-->
@@ -13,7 +13,7 @@ import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
 
-const API_KEY = "AIzaSyCm3jr9B1jvJ87taITzUsHGXw9vEMKIAUw"; //using caps here as its const, to make more clear
+const API_KEY = "AIzaSyBbrNzW1HuqCFwVzz9dMYnc-sh2jooUOuE"; //using caps here as its const, to make more clear
 
 export default {
   //helps identify when debugging in browser
@@ -23,7 +23,7 @@ export default {
     VideoList
   },
   data() {
-    //have to use a function that returns a data property as we are in a component
+    //have to use a function that returns a data property as we are in a component not an instance
     return { videos: [] }; //initialise as empty array
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
         })
         .then(response => {
           //fill the empty array from above with the data from API
-          this.videos = response.data.items; //this data property that is tied to response from youtube, not our instance
+          this.videos = response.data.items; //THIS data property that is tied to response from youtube, not our instance
         });
     }
   }

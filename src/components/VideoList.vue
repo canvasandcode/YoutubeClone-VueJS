@@ -1,12 +1,14 @@
 <template>
-    <ul>
+    <ul class="list-group">
         <!--'video' acts as a temporary variable that is available only inside template, no property called video exists- video in bind speechmarks has to match name-->
+        <!--v-for creates multuple instances of video list item-->
         <VideoListItem 
             v-for="video in videos" 
             :video="video"
             :key="video.etag">
+            <!-- :video="same name from v-for first variable" -->
         </VideoListItem>
-        {{videos.length}} <!--print out the number of videos that has been passed down as props from App.vue-->
+        <!-- {{videos.length}} print out the number of videos that has been passed down as props from App.vue -->
     </ul>
 </template>
 
@@ -25,6 +27,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>
+
