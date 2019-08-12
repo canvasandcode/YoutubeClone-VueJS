@@ -3,8 +3,12 @@
     <!--listens for termChange event to be emitted from searchbar.vue file, then runs method below-->
     <SearchBar @termChange="onTermChange"></SearchBar>
     <!--SearchBar emits an event called termchange-->
-    <VideoList :videos="videos"></VideoList>
+
+    <VideoDetail :video="selectedVideo" />
+
+    <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
     <!--inside the VideoList we will have access to a property called videos, name in speech marks should match the empty array in data prop below-->
+    
   </div>
 </template>
 
@@ -12,6 +16,7 @@
 import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetail from "./components/VideoDetail";
 
 const API_KEY = "AIzaSyBbrNzW1HuqCFwVzz9dMYnc-sh2jooUOuE"; //using caps here as its const, to make more clear
 
@@ -20,13 +25,19 @@ export default {
   name: "App",
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetail
   },
   data() {
     //have to use a function that returns a data property as we are in a component not an instance
-    return { videos: [] }; //initialise as empty array
+    return { 
+      videos: [],
+      selectedVideo: null }; //initialise as empty array
   },
   methods: {
+    onVideoSelect(video) {
+      this.selectedVideo = video;
+    },
     //searchTerm is 2nd arg from searchbar.vue file, passed the users input text through this
     onTermChange(searchTerm) {
       //and log it here
