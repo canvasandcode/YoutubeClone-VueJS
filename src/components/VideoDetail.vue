@@ -1,5 +1,5 @@
 <template>
-    <div v-if="video"> <!--if video is value then render block, if null/false than block will not render-->
+    <div v-if="video" class="col-md-8"> <!--if video is value then render block, if null/false than block will not render-->
         <div class="embed-responsive embed-responsive-16by9">
             <iframe
             class="embed-responsive-item"
@@ -8,7 +8,7 @@
             </iframe>
         </div>
         <div class="details">
-            <h4>{{ video.snippet.title }}</h4>
+            <h6>{{ video.snippet.title }}</h6>
             <p>{{ video.snippet.description }}</p>
         </div>
     </div>

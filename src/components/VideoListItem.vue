@@ -3,7 +3,7 @@
     <!--getting thumbnails from computed property-->
     <img :src="thumbnailUrl" :alt="videoTitle" class="mr-3" />
     <div class="media-body">
-      <h3>{{videoTitle}}</h3>
+      <h6>{{videoTitle}}</h6>
       <!--name of video)-->
     </div>
   </li>

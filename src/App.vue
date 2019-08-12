@@ -3,12 +3,11 @@
     <!--listens for termChange event to be emitted from searchbar.vue file, then runs method below-->
     <SearchBar @termChange="onTermChange"></SearchBar>
     <!--SearchBar emits an event called termchange-->
-
+    <div class="row">
     <VideoDetail :video="selectedVideo" />
-
     <VideoList :videos="videos" @videoSelect="onVideoSelect"></VideoList>
     <!--inside the VideoList we will have access to a property called videos, name in speech marks should match the empty array in data prop below-->
-    
+    </div>
   </div>
 </template>
 

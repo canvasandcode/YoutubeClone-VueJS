@@ -1,5 +1,5 @@
 <template>
-    <ul class="list-group">
+    <ul class="list-group col-md-4">
         <!--'video' acts as a temporary variable that is available only inside template, no property called video exists- video in bind speechmarks has to match name-->
         <!--v-for creates multuple instances of video list item-->
         <VideoListItem 
